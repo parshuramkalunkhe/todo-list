@@ -26,10 +26,14 @@ const item2 = new Item({
 });
 
 const item3 = new Item({
-    name: "Your ready to go."
+    name: "Hit the checkbox to delete the item."
 });
 
-const defaultItems = [item1, item2, item3];
+const item4 = new Item({
+    name: "You are ready to go."
+});
+
+const defaultItems = [item1, item2, item3, item4];
 
 app.get("/", function (req, res) {
 
@@ -58,6 +62,19 @@ app.post("/", function (req, res) {
         name: itemName
     });
     item.save();
+    res.redirect("/");
+});
+
+app.post("/delete", function(req, res){
+    const checkId = req.body.checkbox;
+
+    Item.findByIdAndRemove(checkId).then(function(err){
+        if(!err){
+            console.log("success deleted.");
+        }
+    }).catch(function(err){
+        console.log(err);
+    });
     res.redirect("/");
 });
 

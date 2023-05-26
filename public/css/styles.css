@@ -1,8 +1,7 @@
 html {
+  font-family: system-ui;
   background-color: #E4E9FD;
-  background-image: -webkit-linear-gradient(70deg, #A683E3 50%, #E4E9FD 50%);
   min-height: 1000px;
-  font-family: 'helvetica neue';
 }
 
 h1 {
@@ -37,7 +36,8 @@ h1 {
 input:checked+p {
   text-decoration: line-through;
   text-decoration-color: #A683E3;
-  /* border: 2px solid #00204a; */
+  background: #bcb1ff;
+  transition: ease-in-out 300ms;
 }
 
 input[type="checkbox"] {
@@ -52,7 +52,7 @@ p {
   color: #00204a;
 }
 
-form {
+form.item {
   text-align: center;
   margin-left: 20px;
 }
